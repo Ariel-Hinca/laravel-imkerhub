@@ -24,11 +24,16 @@
     </p>
 
     @if($user->avatar)
-    <p>Huidige foto:</p>
+    <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">Huidige foto:</p>
     <img src="{{ asset('storage/' . $user->avatar) }}" width="2000">
     @endif
 
     <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-        <button type="submit">Opslaan</button>
+        <button type="submit" >
+            <x-primary-button>
+                Opslaan
+            </x-primary-button>
+        </button>
     </p>
+    
 </form>
