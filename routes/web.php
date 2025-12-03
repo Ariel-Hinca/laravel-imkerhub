@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserProfileController;
 
 Route::get('/', function () {
     return view('home');
@@ -20,8 +21,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin', function () {
         return 'Admin dashboard (alleen voor admins)';
     })->middleware(['auth', 'admin'])->name('admin');
-
-
 });
+
+// Views rutes voor niet ingelogde users zichtbaarheid en voor user's updates (avatar/profielfoto)
+// Publiek profiel
+Route::get('/users/{user}', [UserProfileController::class, 'show'])->name('profile.show');
+
+// Eigen profiel bewerken
+Route::get('/profile/edit-extra', [UserProfileController::class, 'edit'])
+    ->middleware('auth')
+    ->name('profile.edit.extra');
+
+// Opslaan
+Route::post('/profile/update-extra', [UserProfileController::class, 'update'])
+    ->middleware('auth')
+    ->name('profile.update.extra');
 
 require __DIR__.'/auth.php';
