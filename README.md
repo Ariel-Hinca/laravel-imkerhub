@@ -53,3 +53,11 @@ Deze gebruiker kan andere accounts adminrechten geven of afnemen.
 ### Afbeeldingen opslaan in Laravel
 Voor het uploaden van de profielfoto-upload heb ik extra informatie gebruikt uit dit artikel:
 https://medium.com/@laravelprotips/storing-public-and-private-files-images-in-laravel-a-comprehensive-guide-6620789fad3b
+
+## Favicon
+
+De favicon die in dit project wordt gebruikt, is gegenereerd met **Real Favicon Generator**.  
+https://realfavicongenerator.net
+
+De gegenereerde favicon-bestanden zijn toegevoegd aan de Laravel `public/` map.
+
