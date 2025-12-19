@@ -10,6 +10,11 @@
 </head>
 <body class="bg-gray-100 text-gray-900 antialiased">
 <div class="min-h-screen flex flex-col items-center justify-center gap-6">
+    <img
+        src="/logo.png"
+        alt="ImkerHUB logo"
+    />
+
     <h1 class="text-4xl font-bold">
         Welcome!
     </h1>
