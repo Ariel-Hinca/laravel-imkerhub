@@ -9,7 +9,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-gray-100 text-gray-900 antialiased">
-<div class="min-h-screen flex flex-col items-center justify-center gap-6">
+<div class="min-h-screen flex flex-col items-center justify-center gap-10">
     <img
         src="/logo.png"
         alt="ImkerHUB logo"
@@ -18,6 +18,7 @@
     <h1 class="text-4xl font-bold">
         Welcome!
     </h1>
+
     <p>Dit is het platform waar imkers en klanten elkaar vinden.</p>
     <div>
         @if (Route::has('login'))
