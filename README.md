@@ -50,6 +50,10 @@ Deze gebruiker kan andere accounts adminrechten geven of afnemen.
 - Laravel Breeze documentatie: https://laravel.com/docs/breeze
 - Laravel framework documentatie: https://laravel.com/docs
 
+- Voor bepaalde onderdelen van dit project, zoals het admin CRUD-systeem voor nieuwsitems en het opslaan van afbeeldingen, heb ik gebruikgemaakt van AI-ondersteuning (ChatGPT: https://chatgpt.com/share/6946bf50-c984-800f-9eb6-81e702239ac5).
+  De AI werd gebruikt om stap-voor-stap uitleg te krijgen en voorbeeldcode te genereren die aangepast werd aan mijn project.
+  Alle gegenereerde code werd nagekeken en begrepen voordat ze werd toegepast.
+
 ### Afbeeldingen opslaan in Laravel
 Voor het uploaden van de profielfoto-upload heb ik extra informatie gebruikt uit dit artikel:
 https://medium.com/@laravelprotips/storing-public-and-private-files-images-in-laravel-a-comprehensive-guide-6620789fad3b

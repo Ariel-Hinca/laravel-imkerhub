@@ -45,3 +45,12 @@ require __DIR__.'/auth.php';
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');
 Route::get('/news/{news}', [NewsController::class, 'show'])->name('news.show');
 
+// CRUD routes voor admins-news
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+    Route::get('/news', [NewsController::class, 'adminIndex'])->name('admin.news.index');
+    Route::get('/news/create', [NewsController::class, 'create'])->name('admin.news.create');
+    Route::post('/news', [NewsController::class, 'store'])->name('admin.news.store');
+    Route::get('/news/{news}/edit', [NewsController::class, 'edit'])->name('admin.news.edit');
+    Route::post('/news/{news}', [NewsController::class, 'update'])->name('admin.news.update');
+    Route::post('/news/{news}/delete', [NewsController::class, 'destroy'])->name('admin.news.destroy');
+});
