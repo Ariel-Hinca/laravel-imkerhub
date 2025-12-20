@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\FaqController;
+
 
 
 Route::get('/', function () {
@@ -54,3 +56,6 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::post('/news/{news}', [NewsController::class, 'update'])->name('admin.news.update');
     Route::post('/news/{news}/delete', [NewsController::class, 'destroy'])->name('admin.news.destroy');
 });
+
+// Route naar FAQS view
+Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
