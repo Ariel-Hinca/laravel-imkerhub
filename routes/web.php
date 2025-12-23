@@ -7,6 +7,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\FaqController;
 use App\Http\Controllers\AdminFaqCategoryController;
 use App\Http\Controllers\AdminFaqItemController;
+use App\Http\Controllers\ContactController;
 
 
 Route::get('/', function () {
@@ -59,7 +60,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 // Route naar FAQS view
 Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
 
-// Routes voor admins om met de FAQ's oage te kunnen interageren
+// Routes voor admins om met de FAQ's page te kunnen interageren
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 
     // Categorieën
@@ -78,3 +79,7 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::post('/faq/items/{item}', [AdminFaqItemController::class, 'update'])->name('admin.faq.items.update');
     Route::post('/faq/items/{item}/delete', [AdminFaqItemController::class, 'destroy'])->name('admin.faq.items.destroy');
 });
+
+//Route voor ContactAdmin views
+Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
+Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');

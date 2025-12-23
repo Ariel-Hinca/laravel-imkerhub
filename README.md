@@ -50,7 +50,7 @@ Deze gebruiker kan andere accounts adminrechten geven of afnemen.
 - Laravel Breeze documentatie: https://laravel.com/docs/breeze
 - Laravel framework documentatie: https://laravel.com/docs
 
-- Voor bepaalde onderdelen van dit project, zoals het admin CRUD-systeem voor nieuwsitems en het opslaan van afbeeldingen, heb ik gebruikgemaakt van AI-ondersteuning (ChatGPT: https://chatgpt.com/share/6946bf50-c984-800f-9eb6-81e702239ac5).
+- Voor bepaalde onderdelen van dit project, zoals het admin CRUD-systeem voor nieuwsitems en het opslaan van afbeeldingen, heb ik gebruikgemaakt van AI-ondersteuning (ChatGPT: https://chatgpt.com/share/694aa92c-83b4-800f-acd3-1e6837097414).
   De AI werd gebruikt om stap-voor-stap uitleg te krijgen en voorbeeldcode te genereren die aangepast werd aan mijn project.
   Alle gegenereerde code werd nagekeken en begrepen voordat ze werd toegepast.
 
@@ -65,3 +65,13 @@ https://realfavicongenerator.net
 
 De gegenereerde favicon-bestanden zijn toegevoegd aan de Laravel `public/` map.
 
+### Contactformulier – e-mail logging
+
+Het contactformulier verstuurt een e-mail naar de admin.
+Tijdens lokale ontwikkeling heb ik gebruikgemaakt van de Laravel `log` mailer, waardoor de volledige e-mailinhoud wordt opgeslagen in: storage/logs/laravel.log
+Dit maakt het mogelijk om aan te tonen dat het e-mailverzendproces correct werkt zonder een echte mailserver te gebruiken.
+
+Voor dit onderdeel heb ik de volgende tutorial als referentie gebruikt:
+https://www.itsolutionstuff.com/post/laravel-contact-form-send-email-tutorial-example.html
+
+De code werd vereenvoudigd en aangepast aan de structuur en het niveau van mijn project.
