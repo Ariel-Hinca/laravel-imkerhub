@@ -20,4 +20,4 @@
 </ul>
 @endif
 
-<p><a href="/">Terug naar home</a></p>
+<p><a href="/dashboard">Terug naar dashboard admin</p>

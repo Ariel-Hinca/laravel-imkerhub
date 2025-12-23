@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\FaqController;
-
+use App\Http\Controllers\AdminFaqCategoryController;
+use App\Http\Controllers\AdminFaqItemController;
 
 
 Route::get('/', function () {
@@ -22,9 +23,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     /* "/admin" enkel voor admins toegangkelijk die de middelware check up voldoen */
-    Route::get('/admin', function () {
-        return 'Admin dashboard (alleen voor admins)';
-    })->middleware(['auth', 'admin'])->name('admin');
+
 });
 
 // Views rutes voor niet ingelogde users zichtbaarheid en voor user's updates (avatar/profielfoto)
@@ -59,3 +58,23 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 
 // Route naar FAQS view
 Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
+
+// Routes voor admins om met de FAQ's oage te kunnen interageren
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+
+    // Categorieën
+    Route::get('/faq/categories', [AdminFaqCategoryController::class, 'index'])->name('admin.faq.categories.index');
+    Route::get('/faq/categories/create', [AdminFaqCategoryController::class, 'create'])->name('admin.faq.categories.create');
+    Route::post('/faq/categories', [AdminFaqCategoryController::class, 'store'])->name('admin.faq.categories.store');
+    Route::get('/faq/categories/{category}/edit', [AdminFaqCategoryController::class, 'edit'])->name('admin.faq.categories.edit');
+    Route::post('/faq/categories/{category}', [AdminFaqCategoryController::class, 'update'])->name('admin.faq.categories.update');
+    Route::post('/faq/categories/{category}/delete', [AdminFaqCategoryController::class, 'destroy'])->name('admin.faq.categories.destroy');
+
+    // FAQ items
+    Route::get('/faq/items', [AdminFaqItemController::class, 'index'])->name('admin.faq.items.index');
+    Route::get('/faq/items/create', [AdminFaqItemController::class, 'create'])->name('admin.faq.items.create');
+    Route::post('/faq/items', [AdminFaqItemController::class, 'store'])->name('admin.faq.items.store');
+    Route::get('/faq/items/{item}/edit', [AdminFaqItemController::class, 'edit'])->name('admin.faq.items.edit');
+    Route::post('/faq/items/{item}', [AdminFaqItemController::class, 'update'])->name('admin.faq.items.update');
+    Route::post('/faq/items/{item}/delete', [AdminFaqItemController::class, 'destroy'])->name('admin.faq.items.destroy');
+});

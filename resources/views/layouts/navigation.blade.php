@@ -4,9 +4,9 @@
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="shrink-0 flex items-center">
+                <div class=" scale-50 origin-top-left ">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-logo class="block h-9 w-auto fill-current text-gray-800 dark:text-gray-200" />
+                        <x-application-logo class="block h-20 w-auto fill-current text-gray-800 dark:text-gray-200" />
                     </a>
                 </div>
 
@@ -16,13 +16,25 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
 
-                    @auth
-                    @if(auth()->user()->role === 'admin')
-                    <x-nav-link :href="route('admin')" :active="request()->routeIs('admin')">
-                        Admin
-                    </x-nav-link>
+
+
+                    @if(auth()->check() && auth()->user()->role === 'admin')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-nav-link :href="route('admin.news.index')" :active="request()->routeIs('admin.news.*')">
+                            Nieuws
+                        </x-nav-link>
+
+                        <x-nav-link :href="route('admin.faq.categories.index')" :active="request()->routeIs('admin.faq.categories.*')">
+                            FAQ Categorieën
+                        </x-nav-link>
+
+                        <x-nav-link :href="route('admin.faq.items.index')" :active="request()->routeIs('admin.faq.items.*')">
+                            FAQ Items
+                        </x-nav-link>
+
+                    </div>
                     @endif
-                    @endauth
+
                 </div>
             </div>
 
