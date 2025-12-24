@@ -9,7 +9,7 @@ use App\Http\Controllers\AdminFaqCategoryController;
 use App\Http\Controllers\AdminFaqItemController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
-
+use App\Http\Controllers\OrderController;
 
 
 Route::get('/', function () {
@@ -24,8 +24,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-    /* "/admin" enkel voor admins toegangkelijk die de middelware check up voldoen */
 
 });
 
@@ -97,4 +95,10 @@ Route::middleware(['auth', 'seller'])->group(function () {
 
     Route::post('/products', [ProductController::class, 'store'])
         ->name('products.store');
+});
+
+//Bestellingen plaatsen
+Route::middleware(['auth'])->group(function () {
+    Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
+    Route::get('/my-orders', [OrderController::class, 'myOrders'])->name('orders.my');
 });

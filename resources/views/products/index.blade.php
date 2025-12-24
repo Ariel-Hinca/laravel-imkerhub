@@ -21,4 +21,16 @@
 </ul>
 @endif
 
+@auth
+@if(auth()->user()->role === 'customer' || auth()->user()->role === 'admin')
+<form action="{{ route('orders.store') }}" method="POST">
+    @csrf
+    <input type="hidden" name="product_id" value="{{ $product->id }}">
+    <input type="number" name="quantity" value="1" min="1" max="99">
+    <button type="submit">Bestel</button>
+</form>
+@endif
+@endauth
+
+
 <p><a href="/dashboard">Terug naar dashboard </a></p>
