@@ -50,4 +50,24 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    //Producten/services roepen
+    public function products()
+    {
+        return $this->hasMany(\App\Models\Product::class);
+    }
+
+    //Relatie tussen order en user
+    public function orders()
+    {
+        return $this->hasMany(\App\Models\Order::class);
+    }
+
+    //Relatie tussen orderItem, order en user
+    public function orderItems()
+    {
+        return $this->hasMany(\App\Models\OrderItem::class);
+    }
+
+
+
 }
