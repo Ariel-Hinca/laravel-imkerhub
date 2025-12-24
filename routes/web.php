@@ -8,6 +8,8 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\AdminFaqCategoryController;
 use App\Http\Controllers\AdminFaqItemController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ProductController;
+
 
 
 Route::get('/', function () {
@@ -83,3 +85,16 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
 //Route voor ContactAdmin views
 Route::get('/contact', [ContactController::class, 'show'])->name('contact.show');
 Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+
+// Publiek view: producten bekijken
+Route::get('/products', [ProductController::class, 'index'])
+    ->name('products.index');
+
+// Seller/Admin view: producten aanmaken
+Route::middleware(['auth', 'seller'])->group(function () {
+    Route::get('/products/create', [ProductController::class, 'create'])
+        ->name('products.create');
+
+    Route::post('/products', [ProductController::class, 'store'])
+        ->name('products.store');
+});
