@@ -43,4 +43,17 @@ class OrderController extends Controller
 
         return view('orders.my', compact('orders'));
     }
+
+    public function mySales()
+    {
+        // Alle order_items ophalen waar het product van de ingelogde seller is
+        $items = OrderItem::with('order.user', 'product')
+            ->whereHas('product', function ($query) {
+                $query->where('user_id', auth()->id());
+            })
+            ->orderBy('id', 'desc')
+            ->get();
+
+        return view('orders.my-sales', compact('items'));
+    }
 }

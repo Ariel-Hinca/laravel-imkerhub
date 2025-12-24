@@ -32,5 +32,13 @@
 @endif
 @endauth
 
+@auth
+<p>
+    <a href="{{ route('orders.my') }}">Mijn bestellingen</a>
+    @if(auth()->user()->role === 'seller' || auth()->user()->role === 'admin')
+    | <a href="{{ route('orders.sales') }}">Mijn verkopen</a>
+    @endif
+</p>
+@endauth
 
 <p><a href="/dashboard">Terug naar dashboard </a></p>

@@ -102,3 +102,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
     Route::get('/my-orders', [OrderController::class, 'myOrders'])->name('orders.my');
 });
+
+// Seller/Admin kunnen verkopen bekijken
+Route::middleware(['auth', 'seller'])->group(function () {
+    Route::get('/my-sales', [OrderController::class, 'mySales'])->name('orders.sales');
+});
