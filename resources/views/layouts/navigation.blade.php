@@ -36,6 +36,14 @@
                             Users
                         </x-nav-link>
 
+                        <x-nav-link :href="route('admin.products.index')" :active="request()->routeIs('admin.users.*')">
+                            Products
+                        </x-nav-link>
+
+                        <x-nav-link :href="route('admin.orders.index')" :active="request()->routeIs('admin.users.*')">
+                            Orders
+                        </x-nav-link>
+
 
                     </div>
                     @endif

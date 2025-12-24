@@ -11,6 +11,8 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\AdminProductController;
+use App\Http\Controllers\AdminOrderController;
 
 
 Route::get('/', function () {
@@ -109,8 +111,16 @@ Route::middleware(['auth', 'seller'])->group(function () {
     Route::get('/my-sales', [OrderController::class, 'mySales'])->name('orders.sales');
 });
 
-//Admin routes naar CRUD van users
+//Admin kan users in een lijst zien en verwijderen
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/users', [AdminUserController::class, 'index'])->name('admin.users.index');
     Route::post('/users/{user}/delete', [AdminUserController::class, 'destroy'])->name('admin.users.destroy');
+});
+
+//Admin kan users producten zien en verwijderen
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+    Route::get('/products', [AdminProductController::class, 'index'])->name('admin.products.index');
+    Route::post('/products/{product}/delete', [AdminProductController::class, 'destroy'])->name('admin.products.destroy');
+
+    Route::get('/orders', [AdminOrderController::class, 'index'])->name('admin.orders.index');
 });
