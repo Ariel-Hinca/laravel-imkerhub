@@ -10,6 +10,7 @@ use App\Http\Controllers\AdminFaqItemController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\AdminUserController;
 
 
 Route::get('/', function () {
@@ -106,4 +107,10 @@ Route::middleware(['auth'])->group(function () {
 // Seller/Admin kunnen verkopen bekijken
 Route::middleware(['auth', 'seller'])->group(function () {
     Route::get('/my-sales', [OrderController::class, 'mySales'])->name('orders.sales');
+});
+
+//Admin routes naar CRUD van users
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+    Route::get('/users', [AdminUserController::class, 'index'])->name('admin.users.index');
+    Route::post('/users/{user}/delete', [AdminUserController::class, 'destroy'])->name('admin.users.destroy');
 });
