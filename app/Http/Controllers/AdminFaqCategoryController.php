@@ -15,7 +15,8 @@ class AdminFaqCategoryController extends Controller
 
     public function create()
     {
-        return view('admin.faq.categories.create');
+        $categories = FaqCategory::all();
+        return view('admin.faq.categories.create', compact('categories'));
     }
 
     public function store(Request $request)
