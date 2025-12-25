@@ -23,4 +23,18 @@ class AdminUserController extends Controller
         $user->delete(); // cascade verwijdert ook products
         return redirect()->route('admin.users.index');
     }
+
+    // User role wijzigen
+    public function updateRole(Request $request, User $user)
+    {
+        $request->validate([
+            'role' => 'required|in:user,seller,admin',
+        ]);
+
+        $user->role = $request->role;
+        $user->save();
+
+        return redirect()->back()->with('success', 'Rol succesvol aangepast.');
+    }
+
 }

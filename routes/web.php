@@ -95,7 +95,6 @@ Route::get('/products', [ProductController::class, 'index'])
 Route::middleware(['auth', 'seller'])->group(function () {
     Route::get('/products/create', [ProductController::class, 'create'])
         ->name('products.create');
-
     Route::post('/products', [ProductController::class, 'store'])
         ->name('products.store');
 });
@@ -111,16 +110,16 @@ Route::middleware(['auth', 'seller'])->group(function () {
     Route::get('/my-sales', [OrderController::class, 'mySales'])->name('orders.sales');
 });
 
-//Admin kan users in een lijst zien en verwijderen
+//Admin kan users in een lijst zien en verwijderen + role user wijzigen
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/users', [AdminUserController::class, 'index'])->name('admin.users.index');
     Route::post('/users/{user}/delete', [AdminUserController::class, 'destroy'])->name('admin.users.destroy');
+    Route::post('/users/{user}/role', [AdminUserController::class, 'updateRole'])->name('admin.users.updateRole');
 });
 
 //Admin kan users producten zien en verwijderen
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/products', [AdminProductController::class, 'index'])->name('admin.products.index');
     Route::post('/products/{product}/delete', [AdminProductController::class, 'destroy'])->name('admin.products.destroy');
-
     Route::get('/orders', [AdminOrderController::class, 'index'])->name('admin.orders.index');
 });
