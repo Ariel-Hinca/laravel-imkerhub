@@ -16,8 +16,8 @@
                 Aantal: {{ $item->quantity }} <br>
                 Klant: {{ $item->order->user->name ?? 'Onbekend' }} <br>
                 Bestelling #{{ $item->order->id }}
-                <br>
             </li>
+            <br>
             @endforeach
         </ul>
         @endif

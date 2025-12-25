@@ -24,20 +24,21 @@
                 Verkoper: {{ $product->user->name }}
             </li>
             <br>
+            @auth
+            @if(auth()->user()->role === 'customer' || auth()->user()->role === 'admin' || auth()->user()->role === 'seller')
+            <form action="{{ route('orders.store') }}" method="POST">
+                @csrf
+                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                <input type="number" name="quantity" value="1" min="1" max="99" class="text-black">
+                <button type="submit" class="text-green-400" style="font-weight: bold;">Bestel</button>
+            </form>
+            @endif
+            @endauth
+            <br>
             @endforeach
         </ul>
         @endif
-
-        @auth
-        @if(auth()->user()->role === 'customer' || auth()->user()->role === 'admin')
-        <form action="{{ route('orders.store') }}" method="POST">
-            @csrf
-            <input type="hidden" name="product_id" value="{{ $product->id }}">
-            <input type="number" name="quantity" value="1" min="1" max="99" class="text-black">
-            <button type="submit" class="text-green-400" style="font-weight: bold;">Bestel</button>
-        </form>
-        @endif
-        @endauth
+        <br>
         <p><a href="/dashboard" class="text-blue-400">Terug naar dashboard </a></p>
     </div>
 </x-app-layout>

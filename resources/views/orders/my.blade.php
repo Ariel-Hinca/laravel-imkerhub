@@ -24,9 +24,9 @@
             </li>
             @endforeach
         </ul>
+        <br>
         @endforeach
         @endif
-        <br>
         <p><a href="/dashboard" class="text-blue-400">Terug naar dashboard </a></p>
     </div>
 </x-app-layout>
