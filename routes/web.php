@@ -44,7 +44,7 @@ Route::post('/profile/update-extra', [UserProfileController::class, 'update'])
     ->middleware('auth')
     ->name('profile.update.extra');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 // Toon de news views
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');

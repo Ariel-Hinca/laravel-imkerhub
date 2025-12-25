@@ -13,6 +13,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
 
+                    <!-- Nav voor admins -->
                     @if(auth()->check() && auth()->user()->role === 'admin')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                         <x-nav-link :href="route('admin.news.index')" :active="request()->routeIs('admin.news.*')">
@@ -28,17 +29,54 @@
                         </x-nav-link>
 
                         <x-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.*')">
-                            Users
+                            Gebruiers
                         </x-nav-link>
 
                         <x-nav-link :href="route('admin.products.index')" :active="request()->routeIs('admin.users.*')">
-                            Products
+                            Producten
                         </x-nav-link>
 
                         <x-nav-link :href="route('admin.orders.index')" :active="request()->routeIs('admin.users.*')">
-                            Orders
+                            Bestellingen
                         </x-nav-link>
 
+                    </div>
+                    @endif
+
+                    <!-- Nav voor verkopers -->
+                    @if(auth()->check() && auth()->user()->role === 'seller')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+
+                        <x-nav-link :href="route('products.create')" :active="request()->routeIs('products.create')">
+                            Product toevoegen
+                        </x-nav-link>
+
+                        <x-nav-link :href="route('orders.sales')" :active="request()->routeIs('orders.sales')">
+                            Mijn verkopen
+                        </x-nav-link>
+
+                    </div>
+                    @endif
+
+                    <!-- Nav voor gewone ingelogde users -->
+                    @if(auth()->check() && auth()->user()->role === 'customer')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+
+                        <x-nav-link :href="route('faq.index')" :active="request()->routeIs('faq.index')">
+                            FAQ
+                        </x-nav-link>
+
+                        <x-nav-link :href="route('news.index')" :active="request()->routeIs('news.*')">
+                            Nieuws
+                        </x-nav-link>
+
+                        <x-nav-link :href="route('products.index')" :active="request()->routeIs('products.index')">
+                            Producten
+                        </x-nav-link>
+
+                        <x-nav-link :href="route('orders.my')" :active="request()->routeIs('orders.my')">
+                            Mijn bestellingen
+                        </x-nav-link>
 
                     </div>
                     @endif
