@@ -11,7 +11,7 @@
 
             <p>
                 Naam van de categorie:<br>
-                <input type="text" name="name" required>
+                <input type="text" name="name" required class="text-black">
             </p>
 
             <button type="submit" class="text-green-400 text-xl">Opslaan</button>

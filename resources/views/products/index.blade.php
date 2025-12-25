@@ -8,10 +8,10 @@
 
         @auth
         @if(auth()->user()->role === 'seller' || auth()->user()->role === 'admin')
-        <p><a href="{{ route('products.create') }}">+ Nieuw product</a></p>
+        <p><a href="{{ route('products.create') }}" class="text-blue-400">+ Nieuw product</a></p>
         @endif
         @endauth
-
+        <br>
         @if($products->count() === 0)
         <p>Geen producten.</p>
         @else
@@ -23,6 +23,7 @@
                 Prijs: €{{ $product->price }}<br>
                 Verkoper: {{ $product->user->name }}
             </li>
+            <br>
             @endforeach
         </ul>
         @endif
@@ -37,16 +38,6 @@
         </form>
         @endif
         @endauth
-        <br>
-        @auth
-        <p>
-            <a href="{{ route('orders.my') }}" class="text-green-400" style="font-weight: bold;">Mijn bestellingen</a>
-            @if(auth()->user()->role === 'seller' || auth()->user()->role === 'admin')
-            | <a href="{{ route('orders.sales') }}" class="text-green-400" style="font-weight: bold;">Mijn verkopen</a>
-            @endif
-        </p>
-        @endauth
-        <br>
         <p><a href="/dashboard" class="text-blue-400">Terug naar dashboard </a></p>
     </div>
 </x-app-layout>

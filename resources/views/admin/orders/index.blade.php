@@ -17,9 +17,9 @@
                 {{ $item->product->name ?? 'Product verwijderd' }}
                 - aantal: {{ $item->quantity }}
             </li>
+            <br>
             @endforeach
         </ul>
-        <br>
         @endforeach
         @endif
 

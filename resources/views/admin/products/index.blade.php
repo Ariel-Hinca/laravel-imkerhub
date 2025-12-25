@@ -22,6 +22,7 @@
                     <button type="submit" class="text-red-400">Verwijder </button>
                 </form>
             </li>
+            <br>
             @endforeach
         </ul>
         <br>

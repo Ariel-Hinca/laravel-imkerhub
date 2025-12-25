@@ -29,7 +29,7 @@
                         </x-nav-link>
 
                         <x-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.*')">
-                            Gebruiers
+                            Gebruikers
                         </x-nav-link>
 
                         <x-nav-link :href="route('admin.products.index')" :active="request()->routeIs('admin.users.*')">
@@ -47,10 +47,6 @@
                     @if(auth()->check() && auth()->user()->role === 'seller')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
 
-                        <x-nav-link :href="route('products.create')" :active="request()->routeIs('products.create')">
-                            Product toevoegen
-                        </x-nav-link>
-
                         <x-nav-link :href="route('orders.sales')" :active="request()->routeIs('orders.sales')">
                             Mijn verkopen
                         </x-nav-link>
@@ -59,7 +55,7 @@
                     @endif
 
                     <!-- Nav voor gewone ingelogde users -->
-                    @if(auth()->check() && auth()->user()->role === 'customer')
+                    @if(auth()->check() && auth()->user()->role === 'customer' || auth()->user()->role === 'seller')
                     <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
 
                         <x-nav-link :href="route('faq.index')" :active="request()->routeIs('faq.index')">
