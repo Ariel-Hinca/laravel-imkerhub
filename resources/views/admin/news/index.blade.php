@@ -4,7 +4,7 @@
             Admin - Nieuws
         </h2>
     </x-slot>
-    <div class="text-white">
+    <div class="text-white" style="padding-left: 150px;">
         <p><a href="{{ route('admin.news.create') }}" class="text-blue-400">+ Nieuw nieuwsitem</a></p>
         <br>
         @if($newsItems->count() === 0)

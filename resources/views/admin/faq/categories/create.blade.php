@@ -1,24 +1,24 @@
-<h1>Admin - FAQ categorieën</h1>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="text-white text-2xl">
+            Admin - FAQ categorie toevoegen
+        </h2>
+    </x-slot>
+    <div class="text-white" style="padding-left: 150px;">
 
-<p><a href="{{ route('admin.faq.categories.create') }}">+ Nieuwe categorie</a></p>
-<p><a href="{{ route('admin.faq.items.index') }}">FAQ items beheren</a></p>
-
-@if($categories->count() === 0)
-<p>Geen categorieën.</p>
-@else
-<ul>
-    @foreach($categories as $category)
-    <li>
-        {{ $category->name }}
-        - <a href="{{ route('admin.faq.categories.edit', $category->id) }}">Bewerk</a>
-
-        <form action="{{ route('admin.faq.categories.destroy', $category->id) }}" method="POST" style="display:inline;">
+        <form action="{{ route('admin.faq.categories.store') }}" method="POST">
             @csrf
-            <button type="submit">Verwijder</button>
-        </form>
-    </li>
-    @endforeach
-</ul>
-@endif
 
-<p><a href="/admin">Terug naar admin</a></p>
+            <p>
+                Naam van de categorie:<br>
+                <input type="text" name="name" required>
+            </p>
+
+            <button type="submit" class="text-green-400 text-xl">Opslaan</button>
+        </form>
+
+        <p>
+            <a href="{{ route('admin.faq.categories.index') }}" class="text-blue-400">Terug naar categorieën</a>
+        </p>
+    </div>
+</x-app-layout>
