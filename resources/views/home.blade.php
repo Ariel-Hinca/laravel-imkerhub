@@ -8,7 +8,7 @@
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-gray-100 text-gray-900 antialiased">
+<body class="bg-yellow-200 text-gray-900 antialiased">
 <div class="min-h-screen flex flex-col items-center justify-center gap-10">
     <img
         src="/logo.png"
@@ -30,13 +30,13 @@
             </a>
             @else
             <a href="{{ route('login') }}"
-               class="px-4 py-2 rounded bg-indigo-600 text-white">
+               class="px-4 py-2 rounded bg-orange-400 text-yellow-200">
                 Log in
             </a>
 
             @if (Route::has('register'))
             <a href="{{ route('register') }}"
-               class="px-4 py-2 rounded border border-indigo-600 text-indigo-600">
+               class="px-4 py-2 rounded border border-orange-400 text-orange-400">
                 Register
             </a>
             @endif
