@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-white text-2xl">
-            Contact
+            Contact Admin
         </h2>
     </x-slot>
     <div class="text-white" style="padding-left: 150px;">
