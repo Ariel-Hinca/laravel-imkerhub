@@ -123,3 +123,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::post('/products/{product}/delete', [AdminProductController::class, 'destroy'])->name('admin.products.destroy');
     Route::get('/orders', [AdminOrderController::class, 'index'])->name('admin.orders.index');
 });
+
+//Admin kan de contact forms lezen
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+    Route::get('/log-mails', [\App\Http\Controllers\AdminLogMailController::class, 'index'])
+        ->name('admin.log-mails.index');
+});

@@ -1,7 +1,15 @@
 # ImkerHub
 ImkerHub is een Laravel-platform voor imkers en klanten. 
 Imkers kunnen hun bijenproducten en diensten aanbieden, terwijl klanten deze producten eenvoudig kunnen bekijken en bestellen.
-De website bevat gebruikersprofielen, nieuws, een FAQ-sectie, een contactpagina en een eenvoudig bestelsysteem.
+Admins beheren gebruikers, producten, bestellingen, nieuws en FAQ-items.
+
+De website bevat:
+- gebruikersauthenticatie
+- publieke gebruikersprofielen
+- nieuwsitems
+- FAQ-sectie
+- contactformulier
+- een eenvoudig bestelsysteem (extra feature)
 
 ## Installatie (lokale omgeving)
 ### 1. Repository clonen
