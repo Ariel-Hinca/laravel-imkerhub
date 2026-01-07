@@ -13,7 +13,7 @@ class Product extends Model
         'price',
     ];
 
-    //Alleen seller en adin mogen dit aanpassen of verwijderen
+    //Alleen admin kan dit verwijderen
     public function user()
     {
         return $this->belongsTo(User::class);

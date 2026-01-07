@@ -53,19 +53,19 @@ class User extends Authenticatable
     //Producten/services roepen
     public function products()
     {
-        return $this->hasMany(\App\Models\Product::class);
+        return $this->hasMany(Product::class);
     }
 
     //Relatie tussen order en user
     public function orders()
     {
-        return $this->hasMany(\App\Models\Order::class);
+        return $this->hasMany(Order::class);
     }
 
     //Relatie tussen orderItem, order en user
     public function orderItems()
     {
-        return $this->hasMany(\App\Models\OrderItem::class);
+        return $this->hasMany(OrderItem::class);
     }
 
 

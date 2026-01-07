@@ -129,3 +129,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
     Route::get('/log-mails', [\App\Http\Controllers\AdminLogMailController::class, 'index'])
         ->name('admin.log-mails.index');
 });
+
+// View van alle publieke profielen
+Route::get('/profiles', [ProfileController::class, 'index'])->name('profiles.index');
+
+// Publieke profielpagina voor niet ingelogde gebruikers die elke profiel apart kan zien
+Route::get('/profile/{user}', [ProfileController::class, 'show'])->name('profile.show');

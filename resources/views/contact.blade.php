@@ -31,7 +31,7 @@
                 <textarea name="message" rows="5" required class="text-black"></textarea>
             </p>
 
-            <button type="submit"class="text-blue-400"><strong>Versturen</strong></button>
+            <button type="submit" class="text-blue-400"><strong>Versturen</strong></button>
         </form>
     </div>
 </x-app-layout>

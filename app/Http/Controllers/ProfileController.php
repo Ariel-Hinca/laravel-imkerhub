@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProfileUpdateRequest;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -56,5 +57,22 @@ class ProfileController extends Controller
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
+    }
+
+    /**
+     * Show list of all public profiles.
+     */
+    public function index()
+    {
+        $users = User::all();
+        return view('profile.index', compact('users'));
+    }
+
+    /**
+     * Show public profile.
+     */
+    public function show(User $user)
+    {
+        return view('profile.show', compact('user'));
     }
 }

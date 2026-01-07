@@ -40,6 +40,10 @@
                 Register
             </a>
             @endif
+            <a href="{{ route('profiles.index') }}"
+               class="px-4 py-2 rounded border border-orange-400 bg-orange-400 text-yellow-200">
+                Profielen
+            </a>
             @endauth
         </div>
         @endif
