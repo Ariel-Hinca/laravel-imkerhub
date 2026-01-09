@@ -52,6 +52,7 @@ Documentatie: https://laravel.com/docs/breeze
 Bij het uitvoeren van de seeders wordt automatisch een administrator aangemaakt:
 - Email: admin@ehb.be
 - Wachtwoord: Password!321
+
 Deze gebruiker kan andere accounts adminrechten geven of afnemen.
 
 ## Belangrijke informatie
