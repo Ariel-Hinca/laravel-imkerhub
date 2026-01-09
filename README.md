@@ -13,13 +13,13 @@ De website bevat:
 
 ## Installatie (lokale omgeving)
 ### 1. Repository clonen
-git clone
-cd imkerhub
+- git clone
+- cd imkerhub
 
 ### 2. Dependencies installeren
-composer install
-npm install
-npm run dev
+- composer install
+- npm install
+- npm run dev
 
 ### 3. `.env` configureren
 Maak een `.env` bestand op basis van `.env.example` en vul je databasegegevens in.
