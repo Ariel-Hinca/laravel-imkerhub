@@ -23,16 +23,20 @@ De website bevat:
 
 ### 3. `.env` configureren
 Maak een `.env` bestand op basis van `.env.example` en vul je databasegegevens in.
+- cp .env.example .env
 
 ### 4. App key genereren
-php artisan key:generate
+- php artisan key:generate
 
 ### 5. Database migreren + seeders uitvoeren
-php artisan migrate --seed
+- php artisan migrate --seed
 
-## Project lokaal starten
+### 6. Storage link maken (voor profielfoto’s)
+- php artisan storage:link
+
+### 7. Project lokaal starten
 Ik kan "php artisan serve" niet runnen wegens mijn lokale Windows-omgeving (FireWall), daarom gebruik ik deze command om de applicatie te starten:
-php -S 127.0.0.1:8081 -t public
+- php -S 127.0.0.1:8081 -t public
 
 De website is daarna bereikbaar via:
 http://127.0.0.1:8081
