@@ -135,3 +135,15 @@ Route::get('/profiles', [ProfileController::class, 'index'])->name('profiles.ind
 
 // Publieke profielpagina voor niet ingelogde gebruikers die elke profiel apart kan zien
 Route::get('/profile/{user}', [ProfileController::class, 'show'])->name('profile.show');
+
+// Enkel admin kan nieuwe gebruikers aanmaken
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function () {
+
+    Route::get('/users', [AdminUserController::class, 'index'])->name('users.index');
+
+    Route::get('/users/create', [AdminUserController::class, 'create'])->name('users.create');
+    Route::post('/users', [AdminUserController::class, 'store'])->name('users.store');
+
+    Route::post('/users/{id}/update-role', [AdminUserController::class, 'updateRole'])->name('users.updateRole');
+    Route::post('/users/{id}/delete', [AdminUserController::class, 'destroy'])->name('users.destroy');
+});

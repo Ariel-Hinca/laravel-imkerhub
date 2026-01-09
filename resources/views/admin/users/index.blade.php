@@ -5,7 +5,8 @@
         </h2>
     </x-slot>
     <div class="text-white" style="padding-left: 150px;">
-
+        <p><a href="{{ route('admin.users.create') }}" class="text-blue-400">+ Nieuw User</a></p>
+        <br>
         <ul>
             @foreach($users as $user)
             <li>
