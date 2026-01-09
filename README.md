@@ -50,8 +50,8 @@ Documentatie: https://laravel.com/docs/breeze
 
 ## Default Admin Account
 Bij het uitvoeren van de seeders wordt automatisch een administrator aangemaakt:
-Email: admin@ehb.be
-Wachtwoord: Password!321
+- Email: admin@ehb.be
+- Wachtwoord: Password!321
 Deze gebruiker kan andere accounts adminrechten geven of afnemen.
 
 ## Belangrijke informatie
@@ -68,12 +68,12 @@ Deze gebruiker kan andere accounts adminrechten geven of afnemen.
 
 ### Afbeeldingen opslaan in Laravel
 Voor het uploaden van de profielfoto-upload heb ik extra informatie gebruikt uit dit artikel:
-https://medium.com/@laravelprotips/storing-public-and-private-files-images-in-laravel-a-comprehensive-guide-6620789fad3b
+- https://medium.com/@laravelprotips/storing-public-and-private-files-images-in-laravel-a-comprehensive-guide-6620789fad3b
 
-## Favicon
+### Favicon
 
 De favicon die in dit project wordt gebruikt, is gegenereerd met **Real Favicon Generator**.  
-https://realfavicongenerator.net
+- https://realfavicongenerator.net
 
 De gegenereerde favicon-bestanden zijn toegevoegd aan de Laravel `public/` map.
 
@@ -84,6 +84,6 @@ Tijdens lokale ontwikkeling heb ik gebruikgemaakt van de Laravel `log` mailer, w
 Dit maakt het mogelijk om aan te tonen dat het e-mailverzendproces correct werkt zonder een echte mailserver te gebruiken.
 
 Voor dit onderdeel heb ik de volgende tutorial als referentie gebruikt:
-https://www.itsolutionstuff.com/post/laravel-contact-form-send-email-tutorial-example.html
+- https://www.itsolutionstuff.com/post/laravel-contact-form-send-email-tutorial-example.html
 
 De code werd vereenvoudigd en aangepast aan de structuur en het niveau van mijn project.
